@@ -20,5 +20,7 @@ FROM node:slim
 
 WORKDIR /usr/src/app
 COPY --from=build /usr/src/app .
+RUN npm i -g npm@9.4.1 && \
+    npm i -g typescript
 
 CMD ["npm", "test"]
