@@ -21,6 +21,11 @@ FROM node:slim
 WORKDIR /usr/src/app
 COPY --from=build /usr/src/app .
 RUN npm i -g npm@9.4.1 && \
-    npm i -g typescript
+    npm i -g typescript && \
+    npm i tslint --save-dev && \
+    npm i -D jest @types/jest ts-node --save-dev && \
+    npm i -D @swc/jest @swc/cli @swc/core && \
+    npm i uuid @types/uuid && \
+    npm i sequelize reflect-metadata sequelize-typescript
 
 CMD ["npm", "test"]
